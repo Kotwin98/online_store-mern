@@ -1,0 +1,13 @@
+.ProductDesc__container {
+    border: 1px solid rgb(41, 41, 41);
+    width: 30%;
+    margin: 200px 50px;
+}
+
+.ProductDesc__container img {
+    width: 100%;
+}
+
+.go-back__btn {
+    padding: 5px;
+}
