@@ -1,9 +1,10 @@
-const mongoose = require('mongoose');
+require("dotenv").config();
 
+const connectDB = require('./config/db');
 const productData = require('./data/products');
 const product = require('./models/Product');
 
-mongoose.connect('mongodb+srv://Admin:Admin@cluster0.qge7c.mongodb.net/online-store?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
+connectDB();
 
 const uploadData = async () => {
     try {
