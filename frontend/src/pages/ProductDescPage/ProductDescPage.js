@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductDetails } from '../../redux/actions/productActions';
+import { addToCart } from '../../redux/actions/cartActions';
 import './ProductDescPage.css';
 
-const ProductDescPage = () => {
+const ProductDescPage = ({ match, history }) => {
+    const dispatch = useDispatch();
+
+    const getDetails = useSelector(state => state.getProductDetails);
+    const { product, loading, error } = getDetails;
+
+    useEffect(() => {
+        if (product && match.params.id !== product._id) {
+          dispatch(getProductDetails(match.params.id));
+        }
+    }, [dispatch, match, product]);
+
     return (
         <div>
-            <Link to="/"><button className="go-back__btn">Go Back</button></Link>
-            <div className="ProductDesc__container">
-                <img src="https://images.pexels.com/photos/47261/pexels-photo-47261.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-                <p>Name</p>
-                <p>Price</p>
-                <p>Description</p>
-            </div>
+            {loading ? <h1>Loading...</h1> : error ? <h1>{error}</h1> : (
+                <>
+                    <Link to="/"><button className="go-back__btn">Go Back</button></Link>
+                    <div className="ProductDesc__container">
+                        <img src={product.image} />
+                        <p>{product.name}</p>
+                        <p>Price: {product.price}</p>
+                        <p>{product.description}</p>
+                    </div> 
+                </>
+            )}
         </div>
     );
 }
