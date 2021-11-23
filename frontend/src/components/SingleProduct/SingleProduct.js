@@ -4,14 +4,14 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 import './SingleProduct.css';
 
-const SingleProduct = props => {
+const SingleProduct = ({name, imageUrl, desc, price, id}) => {
     return (
         <div className="single-product__wrap">
-            <img src={props.image} />
-            <p>{props.name}</p>
-            <p>{props.price}</p>
-            <p>{props.desc}</p>
-            <Link to="/product-description"><button>VIEW</button></Link>
+            <img src={imageUrl} />
+            <p>{name}</p>
+            <p>{price}</p>
+            <p>{desc}</p>
+            <Link to={`/product-description/${id}`}><button>VIEW</button></Link>
             <AddShoppingCartIcon />
         </div>
     );
