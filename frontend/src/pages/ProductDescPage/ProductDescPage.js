@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductDetails } from '../../redux/actions/productActions';
 import { addToCart } from '../../redux/actions/cartActions';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import './ProductDescPage.css';
 
 const ProductDescPage = ({ match, history }) => {
@@ -17,6 +18,11 @@ const ProductDescPage = ({ match, history }) => {
         }
     }, [dispatch, match, product]);
 
+    const addToCartHandler = () => {
+        dispatch(addToCart(product._id));
+        history.push(`/cart`);
+    };
+
     return (
         <div>
             {loading ? <h1>Loading...</h1> : error ? <h1>{error}</h1> : (
@@ -27,6 +33,7 @@ const ProductDescPage = ({ match, history }) => {
                         <p>{product.name}</p>
                         <p>Price: {product.price}</p>
                         <p>{product.description}</p>
+                        <AddShoppingCartIcon onClick={addToCartHandler} />
                     </div> 
                 </>
             )}
