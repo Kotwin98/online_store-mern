@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DeleteIcon from '@material-ui/icons/Delete';
 import './CartItem.css';
 
-const CartItem = ({item}) => {
+const CartItem = ({ item, removeFromCart }) => {
   console.log(item);
   return (
     <div>
@@ -13,6 +14,7 @@ const CartItem = ({item}) => {
         <p>{item.name}</p>
       </Link>
       <p>{item.price}</p>
+      <DeleteIcon onClick={() => removeFromCart(item.product)} />
     </div>
   )
 }
