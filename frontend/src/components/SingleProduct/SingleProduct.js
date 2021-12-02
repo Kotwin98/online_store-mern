@@ -1,6 +1,7 @@
-import  React from 'react';
+import  React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+// import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+// import { addToCart } from '../../redux/actions/cartActions';
 
 import './SingleProduct.css';
 
@@ -12,7 +13,7 @@ const SingleProduct = ({name, imageUrl, desc, price, id}) => {
             <p>{price}</p>
             <p>{desc}</p>
             <Link to={`/product-description/${id}`}><button>VIEW</button></Link>
-            <AddShoppingCartIcon />
+            {/* <AddShoppingCartIcon onClick={addToCartHandler} /> */}
         </div>
     );
 }
