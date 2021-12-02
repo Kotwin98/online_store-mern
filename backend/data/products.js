@@ -3,7 +3,7 @@ const products = [
         name: 'Smartphone',
         description: 'A dummy smartphone description',
         price: 200,
-        image: 'https://images.pexels.com/photos/4065906/pexels-photo-4065906.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
+        image: 'https://images.pexels.com/photos/47261/pexels-photo-47261.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
         name: 'Laptop',
